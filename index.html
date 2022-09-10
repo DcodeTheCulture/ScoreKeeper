@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score keeper</title>
+    <style>
+        .winner {
+            color: green
+        }
+
+        .loser {
+            color: red
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+</head>
+
+<body>
+    <div class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-half is-offset-one-quarter">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by4">
+                                <img src="data:image/jpeg;base64,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"
+                                    alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="title is-3 container"> Score Keeper</div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-left">
+                                    <figure class="image is-48x48">
+                                        <img src="https://finance-admin.law.columbia.edu/sites/default/files/styles/cu_crop/public/content/Human%20Resources/Images/star_1.jpg?itok=geW62CkA"
+                                            alt="Placeholder image">
+                                    </figure>
+                                </div>
+                                <div class="media-content">
+                                    <h1 class="title is-1"><span id="p1Display">0</span> to <span
+                                            id="p2Display">0</span>
+                                    </h1>
+                                    <p class="subtitle is-6">@CodewithZel</p>
+                                    <label for="playTo" class="label is-large is-inline">Playing to</label>
+                                    <div class="select is-rounded">
+                                        <select name="" id="playTo">
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="content">
+                                Use buttons below to keep score.
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <button id="p1Button" class="is-primary button card-footer-item">+1 Player One</button>
+                            <button id="p2Button" class="is-link button card-footer-item">+1 Player Two</button>
+                            <button id="reset" class="is-danger button card-footer-item">Reset</button>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>
